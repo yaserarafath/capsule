@@ -12,6 +12,7 @@ import { appService } from './service/index';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
 import { CommonutilsModule } from './commonutils.module';
+import { UserModule } from './userlist/user.module';
 
 export class MyOptions extends RequestOptions {
   constructor() {
@@ -29,7 +30,7 @@ export class MyOptions extends RequestOptions {
     AppComponent
   ],
   imports: [
-    BrowserModule, AppRoutingModule, UpdateTaskModule, ViewTaskModule, HttpModule, HttpClientModule, NgbModule.forRoot(), NgbTypeaheadModule.forRoot(), CommonutilsModule.forRoot()
+    BrowserModule, AppRoutingModule, UpdateTaskModule, UserModule, ViewTaskModule, HttpModule, HttpClientModule, NgbModule.forRoot(), NgbTypeaheadModule.forRoot(), CommonutilsModule.forRoot()
   ],
   exports: [
     
