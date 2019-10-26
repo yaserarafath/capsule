@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config ./proxy-config.json",
+    "server": "./node_modules/.bin/ts-node -P ./server/server.tsconfig.json ./server/server.ts",
     "build": "ng build --prod --build-optimizer=false",
     "test": "ng test",
     "lint": "ng lint",
@@ -38,6 +39,8 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
+    "cors": "^2.8.5",
+    "express": "^4.16.2",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",
