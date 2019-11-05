@@ -3,37 +3,27 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { Observable } from 'rxjs/Observable';  
+import { Observable } from 'rxjs/Observable';
 import { Headers, RequestOptions } from '@angular/http';
 import { Config } from '../env/index';
 import { RouterModule , Router } from '@angular/router';
 import {User} from '../userlist/user';
-<<<<<<< HEAD
 import {catchError, map} from 'rxjs/operators';
-=======
->>>>>>> 1e2a514c29d421342d38d3999a7155b551ac9b66
+
 
 @Injectable()
 export class appService {
     headers: any = new Headers({ 'Accept': '*/*', 'Content-Type': 'application/json'});
     options: any = new RequestOptions({ headers: this.headers });
     updatetask: any = {};
-    constructor(private http: Http, private router : Router) {
+    constructor(private http: Http, private router: Router) {
     }
     getTasks(): Observable<string[]> {
-<<<<<<< HEAD
         return this.http.get(`${Config.API}/api/tasks`, this.options)
             .pipe(
                 map(res => res.json()),
                 catchError(this.handleErrorNoChange.bind(this))
             );
-=======
-        let headers = new Headers({ 'Accept': '*/*', 'Content-Type':'application/json'});
-        let options = new RequestOptions({ headers: headers });
-        return this.http.get(Config.API+ "/api/tasks", options)
-                        .map((res: Response) => res.json())
-                        .catch(this.handleErrorNoChange.bind(this));
->>>>>>> 1e2a514c29d421342d38d3999a7155b551ac9b66
     }
 
     addTask(inputParam: {}): Observable<string[]> {
@@ -48,7 +38,7 @@ export class appService {
                         .catch(this.handleErrorNoChange.bind(this));
     }
 
-    deleteTask(taskId : string): Observable<string[]> {
+    deleteTask(taskId: string): Observable<string[]> {
         return this.http.delete(Config.API+ "api/tasks/"+ taskId, this.options)
                         .map((res: Response) => res.json())
                         .catch(this.handleErrorNoChange.bind(this));
@@ -61,7 +51,6 @@ export class appService {
         return Observable.throw(errMsg);
     }
 
-<<<<<<< HEAD
     getUsers(): Observable<any> {
         return this.http.get(`${Config.API}/api/users`, this.options)
             .pipe(
@@ -84,23 +73,6 @@ export class appService {
                 map(res => res.json()),
                 catchError(this.handleErrorNoChange.bind(this))
             );
-=======
-    getUSers(): Observable<any> {
-        const headers = new Headers({ 'Accept': '*/*', 'Content-Type': 'application/json' });
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get(`${Config.API}/api/users`, options)
-            .map(res => res.json())
-            .catch(this.handleErrorNoChange.bind(this))
-    }
-
-    addUser(user: User) {
-        const headers = new Headers({ 'Accept': '*/*', 'Content-Type': 'application/json' });
-        const options = new RequestOptions({ headers: headers });
-        this.http.put
-        return this.http.put(`${Config.API}/api/user${user.id}`, user)
-            .map(res => res.json())
-            .catch(this.handleErrorNoChange.bind(this));
->>>>>>> 1e2a514c29d421342d38d3999a7155b551ac9b66
     }
 
 }
