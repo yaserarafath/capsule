@@ -5,7 +5,7 @@ export const TASKS: {[key: string]: any} = {
         {"parentTask": {"parentTaskName": "Employee", "parentId": 2}}
     ]
 }
-export const USERS: {[key: string]: any} = {
+export let USERS: {[key: string]: any} = {
     users: [
         {firstName: "Alice", lastName: "George", id: 0},
         {firstName: "Bob", lastName: "Jake", id: 1}
