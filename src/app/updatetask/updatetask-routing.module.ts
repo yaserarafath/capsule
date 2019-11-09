@@ -6,6 +6,7 @@ import { UpdateTaskComponent } from './updatetask.component';
   imports: [
     RouterModule.forChild([
       { path: '', component: UpdateTaskComponent },
+      { path: '', redirectTo: '/addtask', pathMatch: 'full' },
       { path: 'addtask', component: UpdateTaskComponent },
       { path: 'edittask', component: UpdateTaskComponent }
     ])

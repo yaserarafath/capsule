@@ -15,8 +15,8 @@
                 <td>{{user.lastName}}</td>
                 <td class="actionWidth">
                     <div>
-                        <button type="button" class="btn btn-info">Edit</button>
-                        <button type="button" class="btn btn-danger mx-2">Delete</button>
+                        <button type="button" class="btn btn-info" (click)="editUser(user)">Edit</button>
+                        <button type="button" class="btn btn-danger mx-2" (click)="deleteUser(user)">Delete</button>
                     </div>
                 </td>
             </tr>

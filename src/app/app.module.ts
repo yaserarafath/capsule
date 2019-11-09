@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { CommonutilsModule } from './commonutils.module';
 import { UserModule } from './userlist/user.module';
+import { AppHeaderComponent } from './app-header/app-header.component';
 
 export class MyOptions extends RequestOptions {
   constructor() {
@@ -27,7 +28,8 @@ export class MyOptions extends RequestOptions {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppHeaderComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, UpdateTaskModule, UserModule, ViewTaskModule, HttpModule, HttpClientModule, NgbModule.forRoot(), NgbTypeaheadModule.forRoot(), CommonutilsModule.forRoot()

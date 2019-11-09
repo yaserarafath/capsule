@@ -1,7 +1,7 @@
 import * as express from "express";
 import {Application} from "express";
 import {getAllTasks} from "./tasks";
-import {getAllUsers, addUser} from "./users";
+import {getAllUsers, addUser, updateUser, deleteUser} from "./users";
 
 const bodyParser = require('body-parser');
 
@@ -20,6 +20,10 @@ app.route("/api/tasks").get(getAllTasks);
 app.route("/api/users").get(getAllUsers);
 
 app.route("/api/users/add").post(addUser);
+
+app.route("/api/users/update").post(updateUser);
+
+app.route("/api/users/delete").post(deleteUser);
 
 const httpServer = app.listen(9000, () => {
     console.log("HTTP REST API Server running at http://localhost:" + httpServer.address().port);
