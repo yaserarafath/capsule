@@ -1,8 +1,7 @@
-import * as express from 'express';
-import * as cors from "cors";
+import * as express from "express";
 import {Application} from "express";
-import {getAllTasks} from "./get-tasks";
-import {getAllUsers} from "./get-users"
+import {getAllTasks} from "./tasks";
+import {getAllUsers, addUser} from "./users";
 
 const bodyParser = require('body-parser');
 
@@ -19,6 +18,8 @@ app.use(bodyParser.json());
 app.route("/api/tasks").get(getAllTasks);
 
 app.route("/api/users").get(getAllUsers);
+
+app.route("/api/users/add").post(addUser);
 
 const httpServer = app.listen(9000, () => {
     console.log("HTTP REST API Server running at http://localhost:" + httpServer.address().port);

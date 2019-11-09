@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, ViewEncapsulation, OnDestroy, ViewChild } from '@angular/core';
+import {Component, OnInit, Inject, ViewEncapsulation, OnDestroy, ViewChild, Input} from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm, FormBuilder, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -14,6 +14,8 @@ import { appService } from '../service';
 })
 export class UserListComponent implements OnInit {
     users: User[];
+    @Input()
+    userList: User[];
 
     constructor(private readonly appservice: appService){
 
@@ -24,7 +26,7 @@ export class UserListComponent implements OnInit {
     }
 
     loadUsers(): void {
-        this.appservice.getUSers()
+        this.appservice.getUsers()
             .subscribe(users => {
                 this.users = users;
             });
