@@ -15,8 +15,7 @@ import {concatMap} from 'rxjs/operators';
 })
 export class AddUserComponent implements OnInit {
     userForm: FormGroup;
-    user: User;
-    userList;
+    users: User;
 
     constructor(private fb: FormBuilder, private readonly appservice: appService) {
     }
@@ -27,7 +26,7 @@ export class AddUserComponent implements OnInit {
         console.log(this.userForm.value);
         this.appservice.addUser(this.userForm.value).pipe(
             concatMap(() => this.getUsers())
-        ).subscribe(console.log);
+        ).subscribe(data => { this.users = data });
     }
     getUsers() {
         return this.appservice.getUsers();

@@ -13,9 +13,9 @@ import { appService } from '../service';
     templateUrl: "./user-list.component.html"
 })
 export class UserListComponent implements OnInit {
-    users: User[];
+    //users: User[];
     @Input()
-    userList: User[];
+    users: User[];
 
     constructor(private readonly appservice: appService){
 

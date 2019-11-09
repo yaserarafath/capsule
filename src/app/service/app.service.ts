@@ -70,7 +70,7 @@ export class appService {
     addUser(user: User) {
         return this.http.post(`${Config.API}/api/users/add`, JSON.stringify(user), this.options)
             .pipe(
-                map(res => res.json()),
+                map(res => res),
                 catchError(this.handleErrorNoChange.bind(this))
             );
     }
