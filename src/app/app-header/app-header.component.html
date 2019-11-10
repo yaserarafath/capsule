@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Task Manager</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-label="Toggle navigation" (click)="openMenu = !openMenu">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav" [ngbCollapse]="!openMenu">
+      <ul class="navbar-nav">
+          <li class="nav-item">
+              <a class="nav-link" routerLinkActive>Add Project</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/addtask']" routerLinkActive="active">Add Task</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/adduser']" routerLinkActive="active">Add User</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/viewtask']" routerLinkActive="active">View Task</a>
+        </li>
+      </ul>
+  </div>
+</nav>

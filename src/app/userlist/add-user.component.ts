@@ -16,11 +16,13 @@ import {concatMap} from 'rxjs/operators';
 export class AddUserComponent implements OnInit {
     userForm: FormGroup;
     users: User;
+    showEdit: boolean;
 
     constructor(private fb: FormBuilder, private readonly appservice: appService) {
     }
     ngOnInit(): void {
         this.initForm();
+        this.showEdit = false;
     }
     submitForm(): void {
         console.log(this.userForm.value);
@@ -39,6 +41,26 @@ export class AddUserComponent implements OnInit {
             'firstName': ['', Validators.required],
             'lastName': ['', Validators.required],
             'id': ['', Validators.required]
+        });
+    }
+
+    showUserDetails(userData: any){
+        this.showEdit = true;
+        this.userForm.controls['id'].disable();
+        this.userForm.patchValue({
+            firstName: userData.firstName,
+            lastName: userData.lastName,
+            id: userData.id
+        });
+    }
+
+    updateData() {
+        this.appservice.updateUser(this.userForm.value).pipe(
+            concatMap(() => this.getUsers())
+        ).subscribe(data => { 
+            this.users = data 
+            this.userForm.controls['id'].enable();
+            this.userForm.reset();
         });
     }
 }

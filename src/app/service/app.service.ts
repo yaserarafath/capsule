@@ -75,4 +75,19 @@ export class appService {
             );
     }
 
+    updateUser(user: User) {
+        return this.http.post(`${Config.API}/api/users/update`, JSON.stringify(user), this.options)
+            .pipe(
+                map(res => res),
+                catchError(this.handleErrorNoChange.bind(this))
+            );
+    }
+
+    deleteUser(user: User) {
+        return this.http.post(`${Config.API}/api/users/delete`, JSON.stringify(user), this.options)
+            .pipe(
+                map(res => res),
+                catchError(this.handleErrorNoChange.bind(this))
+            );
+    }
 }
